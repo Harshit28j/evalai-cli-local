@@ -127,7 +127,6 @@ def push(image, phase, url, public, private):
     max_docker_image_size = response.get("max_docker_image_size")
 
     docker_image_size = docker_image.__dict__.get("attrs").get("VirtualSize")
-    # Prompt for submission details
     if click.confirm("Do you want to include the Submission Details?"):
         submission_metadata["method_name"] = click.prompt(
             style("Method Name", fg="yellow"), type=str, default=""
@@ -264,7 +263,6 @@ def push(image, phase, url, public, private):
                     attribute_data['values'] = value
                 submission_attribute_metadata.append(attribute_data)
 
-    # After collecting submission_attribute_metadata
     if submission_attribute_metadata:
         submission_metadata["submission_meta_attributes"] = submission_attribute_metadata
 
